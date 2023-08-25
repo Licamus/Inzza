@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<migrations>
+
+  <priorNameHint>
+    <oldName>Orchid.IfcExport.IFC.FileTypes</oldName>
+    <newName>Orchid.IfcExport.IFC.FileFormat</newName>
+  </priorNameHint>
+
+  <priorNameHint>
+    <oldName>Orchid.IfcExport.IFC.FileTypeByName</oldName>
+    <newName>Orchid.IfcExport.IFC.FileFormatByName</newName>
+  </priorNameHint>
+
+  <priorNameHint>
+    <oldName>Orchid.IfcExport.IFC.Versions</oldName>
+    <newName>Orchid.IfcExport.IFC.Version</newName>
+  </priorNameHint>  
+  
+</migrations>

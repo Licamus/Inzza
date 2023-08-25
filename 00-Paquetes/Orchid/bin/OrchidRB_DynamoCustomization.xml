@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <assembly>
+    <name>OrchidRB</name>
+  </assembly>
+  <namespaces>
+    <namespace name="Orchid">
+      <category>Orchid—Core</category>
+    </namespace>
+    <namespace name="Orchid.AdeskApp">
+      <category>Orchid—Core.Autodesk</category>
+    </namespace>
+    <namespace name="Orchid.Applications">
+      <category>Orchid—Core.Applications</category>
+    </namespace>
+    <namespace name="Orchid.Common">
+      <category>Orchid—Core.Common</category>
+    </namespace>
+    <namespace name="Orchid.Common.Global">
+      <category>Orchid—Core.Common.Global</category>
+    </namespace>    
+    <namespace name="Orchid.Geometry">
+      <category>Orchid—Core.Geometry</category>
+    </namespace>
+  </namespaces>
+  <namespaces>
+    <namespace name="Orchid.RevitFamily">
+      <category>Orchid—Revit Family</category>
+    </namespace>
+  </namespaces>
+  <namespaces>
+    <namespace name="Orchid.RevitMaterial">
+      <category>Orchid—Revit Material</category>
+    </namespace>
+    <namespace name="Orchid.RevitMaterial.Visual">
+      <category>Orchid—Revit Material.Appearance</category>
+    </namespace>
+  </namespaces>
+  <namespaces>
+    <namespace name="Orchid.RevitProject">
+      <category>Orchid—Revit Project</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Annotations">
+      <category>Orchid—Revit Project.Annotations</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Categories">
+      <category>Orchid—Revit Project.Categories</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Common">
+      <category>Orchid—Revit Project.Common</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Datums">
+      <category>Orchid—Revit Project.Datums</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Elements">
+      <category>Orchid—Revit Project.Elements</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Filters">
+      <category>Orchid—Revit Project.Filters</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Parameters">
+      <category>Orchid—Revit Project.Parameters</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Schedules">
+      <category>Orchid—Revit Project.Schedules</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Systems">
+      <category>Orchid—Revit Project.Systems</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Systems.Networks">
+      <category>Orchid—Revit Project.Systems.Networks</category>
+    </namespace>
+    <namespace name="Orchid.RevitProject.Views">
+      <category>Orchid—Revit Project.Views</category>
+    </namespace>
+  </namespaces>
+</doc>

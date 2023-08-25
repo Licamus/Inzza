@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrchidIE</name>
+    </assembly>
+    <members>
+        <member name="T:Orchid.Notifications.IfcExtensibleNotif">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.IfcExtensibleNotif.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.IfcExtensibleNotif.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchid.Notifications.IfcExtensibleNotif.NoTypesFound">
+            <summary>
+              Looks up a localized string similar to No types found..
+            </summary>
+        </member>
+        <member name="M:Orchid.E.IfcExport.LevelOfDetail.CustomEnums">
+            <summary>
+            LOD --> TessellationLevelOfDetail
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/Revit.IFC.Export/Utility/ExportOptionsCache.cs
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExporterUIWindow.xaml.cs
+            </summary>
+        </member>
+    </members>
+</doc>

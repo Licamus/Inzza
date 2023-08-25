@@ -1,0 +1,24 @@
+{
+  "license": "CC BY-ND 4.0 (This package is covered by the 'License.rtf' in the 'extra' folder)",
+  "file_hash": null,
+  "name": "Orchid",
+  "version": "203.6.0.5842",
+  "description": "Orchid is a solution designed for use in the Dynamo environment. The solution is designed to support practical, technical, geometrical, logical, and mathematical issues. The solution contains functions to solve data handling in Revit projects, Revit families, and materials in Revit. Besides this, also functions to solve common data handling like geometry, printing, exporting, and system actions. Orchid is among the largest and most coherent solutions besides what Autodesk releases for Dynamo.\n\n---\nSoftware environment: Built for Dynamo 2.3 (Revit 2020).\n\nHistory of Orchid:\nPlease see 'License.rtf' in the 'extra' folder or on the github repository.\n\n---\nMore information: Visit the repository at https://github.com/erfajo/OrchidForDynamo",
+  "group": "Orchid",
+  "keywords": [ "orchid", "erfajo", "practical", "technical", "geometrical", "logic", "mathematical", "system action", "element", "project", "family", "material", "type", "instance" ],
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "2.3.2.15724",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "https://github.com/erfajo/OrchidForDynamo",
+  "repository_url": "https://github.com/erfajo/OrchidForDynamo",
+  "contains_binaries": true,
+  "node_libraries": [
+    "OrchidRB, Version=203.6.0.5842, Culture=neutral, PublicKeyToken=null",
+    "OrchidRE, Version=203.6.0.5842, Culture=neutral, PublicKeyToken=null",
+    "OrchidIB, Version=203.6.0.5842, Culture=neutral, PublicKeyToken=null",
+    "OrchidIE, Version=203.6.0.5842, Culture=neutral, PublicKeyToken=null",
+    "OrchidSigma, Version=203.6.0.5842, Culture=neutral, PublicKeyToken=null"
+  ]
+}

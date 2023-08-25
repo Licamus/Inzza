@@ -1,0 +1,42 @@
+<Workspace Version="1.3.3.4111" X="417" Y="117" zoom="1" ScaleFactor="1" Name="ImportInstance.IsLinked" Description="Returns boolean info indicating wether an ImportInstance is linked or not (meaning it's imported)." ID="e2c94a3c-81fc-480c-ad13-65a13d9319c3" Category="Data-Shapes.Revit.Elements">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="868b8aef-d42d-4105-a72f-9a22ad170f38" type="PythonNodeModels.PythonNode" nickname="IsLinked" x="250" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="true" inputcount="1">
+      <PortInfo index="0" default="False" />
+      <Script>#Copyright (c) Data Shapes - Mostafa El Ayoubi ,  2018
+# @data_shapes ,  www.data-shapes.io , contact@data-shapes.io
+
+import clr
+clr.AddReference('RevitAPI')
+from Autodesk.Revit.DB import *
+
+def toList(input):
+	if isinstance(input,list):
+		return UnwrapElement(input)
+	else:
+		return [UnwrapElement(input)]
+	
+importInstances = toList(IN[0])
+
+
+OUT = [importInstance.IsLinked for importInstance in importInstances]</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="682779c8-4dc3-4afb-a947-7226a2053562" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="ImportInstance(s)" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="711ecae9-5a96-46c7-9128-3a46871c4928" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="449" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="bool" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="868b8aef-d42d-4105-a72f-9a22ad170f38" start_index="0" end="711ecae9-5a96-46c7-9128-3a46871c4928" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="682779c8-4dc3-4afb-a947-7226a2053562" start_index="0" end="868b8aef-d42d-4105-a72f-9a22ad170f38" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
