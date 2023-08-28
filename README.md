@@ -1,6 +1,6 @@
 # Inzza Scripts Dynamo
 
-This are Dynamo scripts created for INZZA BIM.
+This are Dynamo scripts created for INZZA BIM, Revit version 2020. Dynamo Version 2.3.xx
 
 ## 00-Packages
 
