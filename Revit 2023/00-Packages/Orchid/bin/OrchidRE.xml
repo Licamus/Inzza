@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrchidRE</name>
+    </assembly>
+    <members>
+        <member name="M:Orchid.E.Common.Print.PaperSize.PopulateItemsCore(System.String)">
+            <summary>
+            Reads the internal element to get all the family 
+            or instance parameters, and adds them to the Items collection.
+            
+            Items are sorted alphabetically by name. 
+            If the SelectedIndex is already set, it is set to zero.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.StringDD">
+            <summary>
+            Extensible Dropdown base class for string values.
+            This class populates a dropdown with all string values of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringDD.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Customized Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="customEnum">Dictionary, with name and type of enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.StringDD.CustomEnum">
+            <summary>
+            Dictionary, with name and type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.IntegerDD">
+            <summary>
+            Extensible Dropdown base class for integer values.
+            This class populates a dropdown with all integer values of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.IntegerDD.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Customized Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="customEnum">Dictionary, with name and type of enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.IntegerDD.CustomEnum">
+            <summary>
+            Dictionary, with name and type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.IntegerDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.IntegerDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.DoubleDD">
+            <summary>
+            Extensible Dropdown base class for double values.
+            This class populates a dropdown with all double values of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.DoubleDD.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Customized Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="customEnum">Dictionary, with name and type of enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.DoubleDD.CustomEnum">
+            <summary>
+            Dictionary, with name and type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.DoubleDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.DoubleDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.EnumerationToStringDD">
+            <summary>
+            Extensible Dropdown base class for Enumerations casted into string values.
+            This class populates a dropdown with all enumeration string names
+            of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationToStringDD.#ctor(System.String,System.Type)">
+            <summary>
+            Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="enumerationType">Type of Enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.EnumerationToStringDD.EnumerationType">
+            <summary>
+            Type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationToStringDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationToStringDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.StringToEnumerationDD">
+            <summary>
+            Extensible Dropdown base class for string described Enumerations.
+            This class populates a dropdown with all named values and 
+            enumeration values of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringToEnumerationDD.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Customized Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="customEnum">Dictionary, with name and type of enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.StringToEnumerationDD.EnumerationType">
+            <summary>
+            Type of Enumeration.
+            </summary>
+        </member>
+        <member name="P:Orchid.E.Internals.StringToEnumerationDD.CustomEnum">
+            <summary>
+            Dictionary, with name and type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringToEnumerationDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.StringToEnumerationDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.EnumerationDD">
+            <summary>
+            Extensible Dropdown base class for Enumerations.
+            This class populates a dropdown with all enumeration types of the specified type.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationDD.#ctor(System.String,System.Type)">
+            <summary>
+            Generic Enumeration Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="enumerationType">Type of Enumeration to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.EnumerationDD.EnumerationType">
+            <summary>
+            Type of Enumeration.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.EnumerationDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.RevitElementByClassDD">
+            <summary>
+            Extensible Dropdown base class for Revit Elements by Class.
+            This class populates a dropdown with all Revit elements of the specified type.
+            It uses a filtered element collector filtering by class.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByClassDD.#ctor(System.String,System.Type)">
+            <summary>
+            Generic Revit Element Class Dropdown Node.
+            </summary>
+            <param name="name">Name of the Node.</param>
+            <param name="elementClass">Type of Revit Element to display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.RevitElementByClassDD.ElementClass">
+            <summary>
+            Type (class) of Element.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByClassDD.PopulateDropDownItems">
+            <summary>
+            Populate the Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByClassDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Cast the selected element to a dynamo node.
+            </summary>
+        </member>
+        <member name="T:Orchid.E.Internals.RevitElementByListDD">
+            <summary>
+            Extensible Dropdown base class for Revit Elements by collection (list).
+            This class populates a dropdown with all Revit elements of the specified type.
+            It uses a filtered element collector filtering by class.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByListDD.#ctor(System.String,System.Collections.Generic.IEnumerable{Autodesk.Revit.DB.Element})">
+            <summary>
+            Generic Collection Dropdown.
+            </summary>
+            <param name="name">Node Name.</param>
+            <param name="collection">Collection to Display.</param>
+        </member>
+        <member name="P:Orchid.E.Internals.RevitElementByListDD.Collection">
+            <summary>
+            Collection of Revit elements.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByListDD.PopulateDropDownItems">
+            <summary>
+            Populate Items in Dropdown menu.
+            </summary>
+        </member>
+        <member name="M:Orchid.E.Internals.RevitElementByListDD.BuildOutputAst(System.Collections.Generic.List{ProtoCore.AST.AssociativeAST.AssociativeNode})">
+            <summary>
+            Assign the selected Enumeration value to the output.
+            </summary>
+        </member>
+    </members>
+</doc>
