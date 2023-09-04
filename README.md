@@ -34,3 +34,7 @@ It let you modified only string values.
 ## 06-Change_FamilyType
 
 This script allow you to change family types (nomensclation) from a coordination project, that contains all the families that you want.
+
+## 07-Change_FamilyName
+
+This is an Excel Macro that allows you to rename al family names in one sheet, you have to copy the windows routes and paste them in the excel to work.
