@@ -1,8 +1,10 @@
 # Inzza Scripts Dynamo
 
-This are Dynamo scripts created for INZZA BIM
-Revit version 2020. Dynamo Version 2.3.xx
-Revit version 2023. Dynamo Version 2.13.1.xx
+This are Dynamo scripts created for INZZA BIM:
+
+  -Revit version 2020. Dynamo Version 2.3.xx
+  
+  -Revit version 2023. Dynamo Version 2.13.1.xx
 
 ## 00-Packages
 
