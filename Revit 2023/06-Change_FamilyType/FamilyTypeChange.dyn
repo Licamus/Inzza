@@ -11,15 +11,25 @@
       "Id": "57ebc3c827d64ae59b493bdbb910ef40",
       "Name": "Código anterior",
       "Type": "string",
-      "Value": "ID",
-      "Description": "Creates a string."
+      "Value": "INZZ",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
     },
     {
       "Id": "2c4872949e274cada9ecddbe360ff04b",
       "Name": "Código Nuevo",
       "Type": "string",
-      "Value": "MESSI",
-      "Description": "Creates a string."
+      "Value": "INZ",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "0cca404fb0154bb09cf6c25c2d0de0a6",
+      "Name": "Categories",
+      "Type": "dropdownSelection",
+      "Value": "OST_Furniture",
+      "Description": "All built-in categories.",
+      "SelectedIndex": 276
     }
   ],
   "Outputs": [],
@@ -130,7 +140,7 @@
       "Inputs": [
         {
           "Id": "980d5d4357704bb0bdf65428ecacae72",
-          "Name": "str",
+          "Name": "string",
           "Description": "String to replace substrings in.\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -159,7 +169,7 @@
       "Outputs": [
         {
           "Id": "4359d9dad7024e56ad4503e3c9f8364d",
-          "Name": "str",
+          "Name": "string",
           "Description": "String with replacements made.",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -168,7 +178,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Replaces all occurrences of text in a string with other text.\n\nString.Replace (str: string, searchFor: string, replaceWith: string): string"
+      "Description": "Replaces all occurrences of text in a string with other text.\n\nString.Replace (string: string, searchFor: string, replaceWith: string): string"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -203,7 +213,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": "ID",
+      "InputValue": "INZZ",
       "Id": "57ebc3c827d64ae59b493bdbb910ef40",
       "Inputs": [],
       "Outputs": [
@@ -223,7 +233,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": "MESSI",
+      "InputValue": "INZ",
       "Id": "2c4872949e274cada9ecddbe360ff04b",
       "Inputs": [],
       "Outputs": [
@@ -242,7 +252,7 @@
     },
     {
       "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
-      "SelectedIndex": 223,
+      "SelectedIndex": 276,
       "SelectedString": "OST_Furniture",
       "NodeType": "ExtensionNode",
       "Id": "0cca404fb0154bb09cf6c25c2d0de0a6",
@@ -266,37 +276,44 @@
     {
       "Start": "2d7c1aefdfed4bef9eba7472e7f60708",
       "End": "77ea28a8e09c4da6a7859fd456d04656",
-      "Id": "95dd2fc8a8d849d3af31277e76dd2c6f"
+      "Id": "95dd2fc8a8d849d3af31277e76dd2c6f",
+      "IsHidden": "False"
     },
     {
       "Start": "2d7c1aefdfed4bef9eba7472e7f60708",
       "End": "0deb2405d75b4a65b6c28ba82fe46e66",
-      "Id": "9ef71a868fff481c95b5816d847eac77"
+      "Id": "9ef71a868fff481c95b5816d847eac77",
+      "IsHidden": "False"
     },
     {
       "Start": "4359d9dad7024e56ad4503e3c9f8364d",
       "End": "f3f2e7db78294db78f30ae3d8f25a2ba",
-      "Id": "2e8a3eb5d161454db9991d62b99d2e7e"
+      "Id": "2e8a3eb5d161454db9991d62b99d2e7e",
+      "IsHidden": "False"
     },
     {
       "Start": "89f1c40eac164591a39a32dc07b8b7e5",
       "End": "980d5d4357704bb0bdf65428ecacae72",
-      "Id": "267033388d264ca3bf4548895bf6dd87"
+      "Id": "267033388d264ca3bf4548895bf6dd87",
+      "IsHidden": "False"
     },
     {
       "Start": "0a9273561d5c41e6b78b8cc5d4ca4581",
       "End": "d1824a00b67c4899bc977d7f24a50967",
-      "Id": "f5c4d1c59eda40e88a629d720c9f5386"
+      "Id": "f5c4d1c59eda40e88a629d720c9f5386",
+      "IsHidden": "False"
     },
     {
       "Start": "9a99a67edd174a16a38148e205e2e649",
       "End": "442c7281ce7041b0a1c6881204600477",
-      "Id": "f9a8abb698304e53a53fcc7c05188b21"
+      "Id": "f9a8abb698304e53a53fcc7c05188b21",
+      "IsHidden": "False"
     },
     {
       "Start": "35d0ec0b4b1944eabf2ea55e5b6ac3b4",
       "End": "d788bb740c2540ddbd0233c11424e5b9",
-      "Id": "991cbebfe7644d54b0bd04704db521ba"
+      "Id": "991cbebfe7644d54b0bd04704db521ba",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [
@@ -314,13 +331,36 @@
       ]
     }
   ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.3.1.11775",
+      "Version": "2.13.1.3887",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -336,10 +376,11 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
-        "ShowGeometry": true,
         "Name": "All Family Types Of Category",
+        "ShowGeometry": true,
         "Id": "05987e1112c64135844b730c5bce5e7d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -348,8 +389,8 @@
         "Y": 222.05648763868345
       },
       {
-        "ShowGeometry": true,
         "Name": "Element.SetName",
+        "ShowGeometry": true,
         "Id": "89a1d8faf6d745c8bf8583a51e2c728e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -358,8 +399,8 @@
         "Y": 224.24350359631472
       },
       {
-        "ShowGeometry": true,
         "Name": "String.Replace",
+        "ShowGeometry": true,
         "Id": "20879e429d374676b5e5f38be1f51193",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -368,8 +409,8 @@
         "Y": 492.68584588020815
       },
       {
-        "ShowGeometry": true,
         "Name": "Element.Name",
+        "ShowGeometry": true,
         "Id": "3899d8f83a6143568e69c60597f1114d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -378,8 +419,8 @@
         "Y": 404.48119650699738
       },
       {
-        "ShowGeometry": true,
         "Name": "Código anterior",
+        "ShowGeometry": true,
         "Id": "57ebc3c827d64ae59b493bdbb910ef40",
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
@@ -388,8 +429,8 @@
         "Y": 726.4375482516316
       },
       {
-        "ShowGeometry": true,
         "Name": "Código Nuevo",
+        "ShowGeometry": true,
         "Id": "2c4872949e274cada9ecddbe360ff04b",
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
@@ -398,8 +439,8 @@
         "Y": 832.57228702912585
       },
       {
-        "ShowGeometry": true,
         "Name": "Categories",
+        "ShowGeometry": true,
         "Id": "0cca404fb0154bb09cf6c25c2d0de0a6",
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
@@ -409,8 +450,8 @@
       }
     ],
     "Annotations": [],
-    "X": 417.7474546422157,
-    "Y": -115.8341248049494,
-    "Zoom": 0.6244183931340701
+    "X": 244.76378690418983,
+    "Y": -21.685590374120466,
+    "Zoom": 0.60644628003772427
   }
 }
