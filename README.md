@@ -38,3 +38,7 @@ This script allow you to change family types (nomensclation) from a coordination
 ## 07-Change_FamilyName
 
 This is an Excel Macro that allows you to rename al family names in one sheet, you have to copy the windows routes and paste them in the excel to work.
+
+## 08-Change_ViewTemplatesName
+
+This scripts allows you to rename views templates. Basically this script, filter view templates from views, and then do a string replace for the names of the view templates.
