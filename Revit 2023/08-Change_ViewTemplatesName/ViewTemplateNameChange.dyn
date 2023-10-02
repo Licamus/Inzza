@@ -347,6 +347,15 @@
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
+        },
+        {
+          "Id": "5308d77dc4924d70a655c43de1e325af",
+          "Name": "replacementForIllegalChars",
+          "Description": "string\nDefault value : \"_\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
         }
       ],
       "Outputs": [
@@ -619,8 +628,8 @@
       }
     ],
     "Annotations": [],
-    "X": -595.08568301426919,
-    "Y": -64.382222301346076,
-    "Zoom": 0.73306196450695471
+    "X": -489.59067463827569,
+    "Y": 149.74949558364983,
+    "Zoom": 0.5855511119447081
   }
 }
