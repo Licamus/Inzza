@@ -6,7 +6,7 @@ This are Dynamo scripts created for INZZA BIM:
   
   -Revit version 2023. Dynamo Version 2.13.1.xx
 
-## Steal Framing
+## Steel Framing
 
 This scripts allows you to create steel framing panels. You can choose Length, Height, and Beams.
 
