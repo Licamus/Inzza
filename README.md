@@ -47,7 +47,7 @@ This is an Excel Macro that allows you to rename al family names in one sheet, y
 
 This scripts allow you to rename views templates. Basically this script, filter view templates from views, and then do a string replace for the names of the view templates.
 
-## 09-Get_ViewFilters_InDynamoÇ
+## 09-Get_ViewFilters_InDynamo
 
 This scripts allow you to get view filters inside dynamo, to use them in other script.
 
