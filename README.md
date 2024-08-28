@@ -58,3 +58,7 @@ This scripts allow you to delete family parameters.
 ## 11-Auto_View_And_Sheets
 
 This scripts creates Auto Documentation (Views and Sheets) by Levels.
+
+## 13-Warnings_Highlight
+
+This script highlights the warnings in the model. In addition, there is another script to reset the views to their default settings.
