@@ -2,7 +2,7 @@
   "Uuid": "40b294cf-a0e0-4c9c-8f7d-4b0de1fc6efe",
   "IsCustomNode": false,
   "Description": null,
-  "Name": "ABG_190911_Warnings-Highlight",
+  "Name": "13-Warnings_Highlight",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -1290,7 +1290,7 @@
       ]
     }
   ],
-  "Thumbnail": null,
+  "Thumbnail": "",
   "GraphDocumentationURL": null,
   "ExtensionWorkspaceData": [
     {
@@ -1319,7 +1319,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.16.2.5624",
+      "Version": "2.13.1.3887",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
