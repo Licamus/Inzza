@@ -1,0 +1,443 @@
+{
+  "Uuid": "8871929b-8d4f-4cb0-8a9b-680c617f560c",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Bulk_Join_FamilyType_Categories",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "2a8a2277f9e546738d692ebd134437e2",
+      "Name": "Categoria Elemento Secundario (a cortar)",
+      "Type": "dropdownSelection",
+      "Value": "OST_StructuralColumns",
+      "Description": "All built-in categories.",
+      "SelectedIndex": 604
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 604,
+      "SelectedString": "OST_StructuralColumns",
+      "NodeType": "ExtensionNode",
+      "Id": "2a8a2277f9e546738d692ebd134437e2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "63c631b5cf984a32a1a69cb96243b4cd",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "10fd9126d89e44d49d337c4d85c82d98",
+      "Inputs": [
+        {
+          "Id": "ab6984766db3480abe0ae869f26ac0ad",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "166555eecaf843a898ea4a6bd2a41090",
+          "Name": "Elements",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.JoinGeometry@Revit.Elements.Element",
+      "Id": "67c6d0a9c46542ac9af8cb50ca4bdfbd",
+      "Inputs": [
+        {
+          "Id": "fe00a02c08b44bea947587bd0ebbbfe6",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "75fa2fc5818d4cd8aff02cdd5a1c1b1e",
+          "Name": "otherElement",
+          "Description": "Other element to join with\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3255115a16f54027ad830e413dd7e342",
+          "Name": "Element[]",
+          "Description": "The two joined elements",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Joins the geometry of two elements, if they are intersecting.\n\nElement.JoinGeometry (otherElement: Element): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetGeometryJoinOrder@Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "8a53ddb222f64274ae63434155c12643",
+      "Inputs": [
+        {
+          "Id": "6b714f97c6ae4dfc8b1abd1549e8e4ec",
+          "Name": "cuttingElement",
+          "Description": "The element that should be cutting the other element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "613c26e717d343ac815c6806b5a6f7e3",
+          "Name": "otherElement",
+          "Description": "The other element that is being cut by the cuttingElement\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c45ef95ead354af3aa92055ecff3d9ee",
+          "Name": "Element[]",
+          "Description": "Input elements with the geometry join order updated.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Sets the order in which the geometry of two elements is joined.\n\nElement.SetGeometryJoinOrder (cuttingElement: Element, otherElement: Element): Element[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "6cd2d1d806394f25bded2687b81739f9",
+      "Inputs": [
+        {
+          "Id": "aefd018cf37a47b6b897930edc33201d",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1a2f526e6b2e4372a8f54add5540d2ab",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "c30e85defb024072be53696923dbeaf2",
+      "Inputs": [
+        {
+          "Id": "d1ad59f0f3864b9dbc5ecfbf9fb14e7a",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6bca1995bbcd4581bff165a5f9069b06",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 208,
+      "SelectedString": "INZ_Viga Hº Aº:150 x 450mm",
+      "NodeType": "ExtensionNode",
+      "Id": "558fb9aad836438681855ffce8a1e013",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d2eed902ecc04869bd12ffa26253099e",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfFamilyType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "7861dfb370c546c38b2ca20f5df19dd6",
+      "Inputs": [
+        {
+          "Id": "08cb68e84ee84ccd8bace41142113e50",
+          "Name": "Family Type",
+          "Description": "The Family Type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "acbfd1982b0b48c09c0f0516bf418874",
+          "Name": "Elements",
+          "Description": "The list of elements matching the query.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified family type from the model."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "63c631b5cf984a32a1a69cb96243b4cd",
+      "End": "ab6984766db3480abe0ae869f26ac0ad",
+      "Id": "b9246888fa12404a98c36810e4b90aa3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "166555eecaf843a898ea4a6bd2a41090",
+      "End": "75fa2fc5818d4cd8aff02cdd5a1c1b1e",
+      "Id": "2659593fb5bf401fb2d6b87032a478b9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "166555eecaf843a898ea4a6bd2a41090",
+      "End": "613c26e717d343ac815c6806b5a6f7e3",
+      "Id": "831a634aff3448d580884cd9e5da69ed",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "166555eecaf843a898ea4a6bd2a41090",
+      "End": "d1ad59f0f3864b9dbc5ecfbf9fb14e7a",
+      "Id": "9038064300b24f04a6f2adb0b170b708",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d2eed902ecc04869bd12ffa26253099e",
+      "End": "08cb68e84ee84ccd8bace41142113e50",
+      "Id": "6aa7faa38b124f30a1bc787963996734",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "acbfd1982b0b48c09c0f0516bf418874",
+      "End": "fe00a02c08b44bea947587bd0ebbbfe6",
+      "Id": "13c865a531084551b8bb8c620f66b41e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "acbfd1982b0b48c09c0f0516bf418874",
+      "End": "6b714f97c6ae4dfc8b1abd1549e8e4ec",
+      "Id": "8f1d9c6d8e3b4f1eafd1740546ddc98b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "acbfd1982b0b48c09c0f0516bf418874",
+      "End": "aefd018cf37a47b6b897930edc33201d",
+      "Id": "37bd82036bbd4d81ba3fb930b123bffc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Categoria Elemento Secundario (a cortar)",
+        "ShowGeometry": true,
+        "Id": "2a8a2277f9e546738d692ebd134437e2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 274.83984386253928,
+        "Y": 552.42657044437362
+      },
+      {
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Id": "10fd9126d89e44d49d337c4d85c82d98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 838.92479122670238,
+        "Y": 549.599306958719
+      },
+      {
+        "Name": "Element.JoinGeometry",
+        "ShowGeometry": true,
+        "Id": "67c6d0a9c46542ac9af8cb50ca4bdfbd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1417.4304593366458,
+        "Y": 368.66816407735837
+      },
+      {
+        "Name": "Element.SetGeometryJoinOrder",
+        "ShowGeometry": true,
+        "Id": "8a53ddb222f64274ae63434155c12643",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1436.3804817533198,
+        "Y": 657.697627669231
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "6cd2d1d806394f25bded2687b81739f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1253.5164066847519,
+        "Y": 6.7628082890724954
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "c30e85defb024072be53696923dbeaf2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1284.3656257803284,
+        "Y": 866.80729530475389
+      },
+      {
+        "Name": "Family Types",
+        "ShowGeometry": true,
+        "Id": "558fb9aad836438681855ffce8a1e013",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 52.693735729486207,
+        "Y": 326.65317739021725
+      },
+      {
+        "Name": "All Elements of Family Type",
+        "ShowGeometry": true,
+        "Id": "7861dfb370c546c38b2ca20f5df19dd6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 805.74938111440667,
+        "Y": 293.34599022722057
+      }
+    ],
+    "Annotations": [],
+    "X": -179.63721950231184,
+    "Y": 79.426189434487583,
+    "Zoom": 0.70455983508958486
+  }
+}
