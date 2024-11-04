@@ -2,7 +2,7 @@
   "Uuid": "40b294cf-a0e0-4c9c-8f7d-4b0de1fc6efe",
   "IsCustomNode": false,
   "Description": null,
-  "Name": "14-Warnings_Reset_Views",
+  "Name": "13.2-Warnings_Reset_Views",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -65,7 +65,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Resets all overrides for an element in a given view"
+      "Description": ""
     },
     {
       "ConcreteType": "DSRevitNodesUI.ElementsInView, DSRevitNodesUI",
@@ -170,7 +170,7 @@
       ]
     }
   ],
-  "Thumbnail": null,
+  "Thumbnail": "",
   "GraphDocumentationURL": null,
   "ExtensionWorkspaceData": [
     {
@@ -199,7 +199,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.13.1.3887",
+      "Version": "2.16.2.5624",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -224,8 +224,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 394.40000000000003,
-        "Y": 227.20000000000002
+        "X": 525.00327383331819,
+        "Y": 231.90250722323083
       },
       {
         "Name": "All Elements In Active View",
@@ -234,8 +234,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 89.600000000000023,
-        "Y": 228.00000000000003
+        "X": 55.110399222431965,
+        "Y": 111.03526692824741
       },
       {
         "Name": "Document.Current",
@@ -244,8 +244,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -12.800000000000068,
-        "Y": 336.0
+        "X": -270.72223190181353,
+        "Y": 395.98191439577056
       },
       {
         "Name": "Document.ActiveView",
@@ -254,13 +254,13 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 132.79999999999995,
-        "Y": 336.0
+        "X": 89.313112063066455,
+        "Y": 497.95116886858062
       }
     ],
     "Annotations": [],
-    "X": 108.89932944624968,
-    "Y": 51.889675293704215,
-    "Zoom": 0.71259483262848833
+    "X": 255.95945854486808,
+    "Y": 28.531692000650281,
+    "Zoom": 0.66686767841508687
   }
 }
