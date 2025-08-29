@@ -25,7 +25,7 @@
     },
     {
       "Id": "8f77c587742b4af491c229625b013337",
-      "Name": "Nombre de Capa",
+      "Name": "Nombre de Capa del CAD",
       "Type": "string",
       "Value": "0",
       "Description": "Creates a string.",
@@ -528,7 +528,7 @@
         "Id": "8f77c587742b4af491c229625b013337",
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
-        "Name": "Nombre de Capa",
+        "Name": "Nombre de Capa del CAD",
         "ShowGeometry": true,
         "Excluded": false,
         "X": -81.131888996954913,
@@ -576,8 +576,8 @@
       }
     ],
     "Annotations": [],
-    "X": -177.58338194603846,
-    "Y": -1242.5898618392182,
-    "Zoom": 0.62775243129279323
+    "X": 434.69921288309433,
+    "Y": -2118.26248449583,
+    "Zoom": 0.9215814378345385
   }
 }
