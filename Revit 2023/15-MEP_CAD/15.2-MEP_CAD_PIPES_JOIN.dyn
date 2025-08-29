@@ -1,0 +1,260 @@
+{
+  "Uuid": "3e3c52d6-6d16-4d0e-9783-d75e81a5aee6",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "15-MEP_CAD_PIPES_JOIN",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "c9b043feeaf04bdfae1f00454598ece2",
+      "Name": "Margen de union",
+      "Type": "number",
+      "Value": "1.000",
+      "NumberType": "Double",
+      "Description": "Creates a number.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "32e981ca-79e5-48f1-a9e2-ca299d7ec881",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "e099123ac81645c6815da30cfcc1dfb6",
+      "Inputs": [
+        {
+          "Id": "bc5338007fef4d30a7965db9867d0966",
+          "Name": "MEPCurves",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7449b1530ae14c44b1b1e5c95d2f2be8",
+          "Name": "Margin",
+          "Description": "int\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "97409b0557284dd6ab1a1438e5fd211a",
+          "Name": "Elbows",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes in a list of MEPCurves (pipe, duct, cable tray, conduit)  and will attempt to create elbows where possible. A margin can be entered for max distance between connectors"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "InputValue": 1.0,
+      "Id": "c9b043feeaf04bdfae1f00454598ece2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1cc1830fdec749dd8145f33e7cc00433",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "d48d7e63e75c4cbd8f8dc8dd2199efdb",
+      "Inputs": [
+        {
+          "Id": "c27f18fd42084fa4979a1dd7570f0130",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb318c013c3a4caaade659317ba98adb",
+          "Name": "Elements",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 436,
+      "SelectedString": "OST_PipeCurves",
+      "NodeType": "ExtensionNode",
+      "Id": "c3a3faf73f5f40218795a6c5f54e3ad1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7b7f15b2f62e46e4bb752544328b448f",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "1cc1830fdec749dd8145f33e7cc00433",
+      "End": "7449b1530ae14c44b1b1e5c95d2f2be8",
+      "Id": "d285a8bea0a34333850cd77e5a764563",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cb318c013c3a4caaade659317ba98adb",
+      "End": "bc5338007fef4d30a7965db9867d0966",
+      "Id": "fa333119185745ef912841b24e6ef147",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7b7f15b2f62e46e4bb752544328b448f",
+      "End": "c27f18fd42084fa4979a1dd7570f0130",
+      "Id": "a0599bf3776142ef90377ff9d2a52334",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "32e981ca-79e5-48f1-a9e2-ca299d7ec881"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "MEPover",
+      "Version": "2024.9.25",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e099123ac81645c6815da30cfcc1dfb6"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "e099123ac81645c6815da30cfcc1dfb6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Elbow.ByMEPCurves",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2147.5883632689192,
+        "Y": 2665.6218830340067
+      },
+      {
+        "Id": "c9b043feeaf04bdfae1f00454598ece2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Margen de union",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1618.2032250564059,
+        "Y": 3048.1222081240421
+      },
+      {
+        "Id": "d48d7e63e75c4cbd8f8dc8dd2199efdb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1358.4883337694957,
+        "Y": 2659.3765785387582
+      },
+      {
+        "Id": "c3a3faf73f5f40218795a6c5f54e3ad1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Categories",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 907.08232544107659,
+        "Y": 2660.0524354963732
+      }
+    ],
+    "Annotations": [],
+    "X": -229.7432100163266,
+    "Y": -816.68219367064512,
+    "Zoom": 0.37387278051598422
+  }
+}
