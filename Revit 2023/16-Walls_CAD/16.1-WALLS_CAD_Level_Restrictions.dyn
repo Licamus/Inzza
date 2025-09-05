@@ -1,0 +1,837 @@
+{
+  "Uuid": "1954a2d2-a3ae-4a2a-b51e-fc0eab1feb40",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "16.1-WALLS_CAD_Level_Restrictions",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "List": {
+        "Key": "List",
+        "Value": "BuiltIn.ds"
+      },
+      "Level": {
+        "Key": "Revit.Elements.Level",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [
+    {
+      "Id": "904046d6d8774b80951328942b396fa2",
+      "Name": "Selecciona CAD",
+      "Type": "hostSelection",
+      "Value": "f2ceebed-a2c8-4289-8e71-8ccdbec5145f-00049e87",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+      "Name": "Nombre de capa en CAD",
+      "Type": "string",
+      "Value": "0",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "6aee18d189b24cd099eef405aa701f55",
+      "Name": "Start Level",
+      "Type": "dropdownSelection",
+      "Value": "Level 1",
+      "Description": "Select a level in the active document",
+      "SelectedIndex": 1
+    },
+    {
+      "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+      "Name": "End Level",
+      "Type": "dropdownSelection",
+      "Value": "Level 2",
+      "Description": "Select a level in the active document",
+      "SelectedIndex": 2
+    },
+    {
+      "Id": "4ccbda59533a4ca3a94e75f6f796c3c0",
+      "Name": "Wall Type",
+      "Type": "dropdownSelection",
+      "Value": "Interior - Blockwork 100",
+      "Description": "All wall types available in the document.",
+      "SelectedIndex": 22
+    },
+    {
+      "Id": "70d88e408d684290ac149261691f1645",
+      "Name": "Wall Location",
+      "Type": "dropdownSelection",
+      "Value": "WallCenterline",
+      "Description": "Wall locations.",
+      "SelectedIndex": 5
+    },
+    {
+      "Id": "4fd68720867b4444af26e7e212015152",
+      "Name": "Es estructural?",
+      "Type": "boolean",
+      "Value": "false",
+      "Description": "Selection between a true and false.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "2b7420f06c034e71b64bc7354aee6a30",
+      "Name": "Nombre de parámetro Top Constraint en el idioma elegido. Si estamos en Revit en ingles dejar así.",
+      "Type": "string",
+      "Value": "Top Constraint",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CAD.CurvesFromCADLayers@Revit.Elements.ImportInstance,string[],bool,string[]",
+      "Id": "ff54e14c0cf74988a5910b87e5262166",
+      "Inputs": [
+        {
+          "Id": "423bee9e4a294c9595928065f376e427",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "783f5c2b282b42b991a10f530802092c",
+          "Name": "layerNames",
+          "Description": "Input the layer names for conversion. Leave unconnected to convert all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9ebc7daac041464a8b7b55663c60bc77",
+          "Name": "createModelCurves",
+          "Description": "Set to True to convert into Revit Model Lines.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9984002676c847cfa98ffa05315af5f3",
+          "Name": "lineStyleMap",
+          "Description": "Input the LineStyle name to map to each layer. Longest lacing is used by default.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b9f6f352cf024f51a39528dc249d6ce2",
+          "Name": "Curve[][]",
+          "Description": "Curve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e4509328c69404e97f12132ebf0b3e4",
+          "Name": "layerKeys[]",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Extracts curves from a CAD link or import by layer name. Enter LineStyle names to map to each layer during conversion.\r\rThe node is optimized to convert curve types that typically fail when using Dynamo Element.Curves node or Revit Explode.\r\rVisit bimorph.com/bimorph-nodes for support.\n\nCAD.CurvesFromCADLayers (importInstance: ImportInstance, layerNames: string[] = [], createModelCurves: bool = false, lineStyleMap: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f2ceebed-a2c8-4289-8e71-8ccdbec5145f-00049e87"
+      ],
+      "Id": "904046d6d8774b80951328942b396fa2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "67817f8394aa4dc292b0ee6cc60289ac",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "0",
+      "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "63e60db400784f8dbc35cc1adf6b9dfd",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 1,
+      "SelectedString": "Level 1",
+      "NodeType": "ExtensionNode",
+      "Id": "6aee18d189b24cd099eef405aa701f55",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0a48d0cab37b4ec998323a4ab20e458b",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 2,
+      "SelectedString": "Level 2",
+      "NodeType": "ExtensionNode",
+      "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1a467604ee74cf997d32e590d83050c",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallTypes, DSRevitNodesUI",
+      "SelectedIndex": 22,
+      "SelectedString": "Interior - Blockwork 100",
+      "NodeType": "ExtensionNode",
+      "Id": "4ccbda59533a4ca3a94e75f6f796c3c0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "66e38775f46d4837a0b64a1f8a0b32ce",
+          "Name": "Wall Type",
+          "Description": "The selected Wall Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All wall types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "03a1a355bbc940918a1d0ca0d6080a11",
+      "Inputs": [
+        {
+          "Id": "4322d2c8095f418180e38121b30fae39",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8559325f53f7441f85073dc201fde5bf",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "015e3a3b97f549adbd06c3af07028e7e",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "93a3fae2-24aa-47dc-9bf2-748662781306",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "fba8faad0ac74ad69c1409b246413637",
+      "Inputs": [
+        {
+          "Id": "8c9d91a616734cf9b52e160b348785c5",
+          "Name": "curve",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c7b66a9d2a24485dbd4f17d604364c15",
+          "Name": "Height",
+          "Description": "double[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c6987a4ba7064f3389e53b8c8cd80dbc",
+          "Name": "level",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5070fe104493459aa93bd669919d0867",
+          "Name": "wallType",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "076f91bf245747b1875b70637222cf2f",
+          "Name": "WallLocation",
+          "Description": "string[]..[]\nDefault value : \"WallCenterline\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "43c3d73d80f142018b38099b70c3eeca",
+          "Name": "Flip",
+          "Description": "bool[]..[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a8c96e0b62fa4b8c8bffd8f2734037b9",
+          "Name": "IsStructural",
+          "Description": "bool[]..[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e23be49638a54672bb86fdbb19710ae2",
+          "Name": "Wall",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a wall using the specified guiding curve and level. "
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallLocation, DSRevitNodesUI",
+      "SelectedIndex": 5,
+      "SelectedString": "WallCenterline",
+      "NodeType": "ExtensionNode",
+      "Id": "70d88e408d684290ac149261691f1645",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "42593415d6e24befab5aff4ee77a6831",
+          "Name": "Wall Location",
+          "Description": "The selected Wall Location",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Wall locations."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "z1 = l1.Elevation;\nz2 = l2.Elevation;\n\ndist = z2 - z1;",
+      "Id": "8322906f31344b61acf72ca4fa92051c",
+      "Inputs": [
+        {
+          "Id": "63c63152183d4700819a9b256e4761d7",
+          "Name": "l1",
+          "Description": "l1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "df96d19a14a5422c82c61598aca6109c",
+          "Name": "l2",
+          "Description": "l2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "101dc39ce03a4b3184dafca0aeb4bb7b",
+          "Name": "",
+          "Description": "z1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "de86bf06a07a4731a309d8cac8962e6e",
+          "Name": "",
+          "Description": "z2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "658c4e5ceeb3425f965091bc53696d6e",
+          "Name": "",
+          "Description": "dist",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "4fd68720867b4444af26e7e212015152",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a2e885403bf14049883c074a05a4f20b",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "947677fdb20540b8949882a09febafb4",
+      "Inputs": [
+        {
+          "Id": "65ed94fd89524be2be424148c03dfc9e",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3023cd3eec1c4aa3875400732b3ec73d",
+          "Name": "parameterName",
+          "Description": "The name of the parameter to set.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36b5f77740cb43e684d243c6720da325",
+          "Name": "value",
+          "Description": "The value.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "90ae101f372b402cbe6e3cef19ea1e60",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Top Constraint",
+      "Id": "2b7420f06c034e71b64bc7354aee6a30",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "83955b558c7049eb988bdf9ee754c1a4",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b9f6f352cf024f51a39528dc249d6ce2",
+      "End": "4322d2c8095f418180e38121b30fae39",
+      "Id": "8852eb758e59423195111669a3cd60c6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "67817f8394aa4dc292b0ee6cc60289ac",
+      "End": "423bee9e4a294c9595928065f376e427",
+      "Id": "49820d2928984bf8bff66b4a4e6d9088",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "63e60db400784f8dbc35cc1adf6b9dfd",
+      "End": "783f5c2b282b42b991a10f530802092c",
+      "Id": "b8b17c538ff84c779cbb00ddb326df9c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0a48d0cab37b4ec998323a4ab20e458b",
+      "End": "c6987a4ba7064f3389e53b8c8cd80dbc",
+      "Id": "4af1f12d38464ab5ab016893ce6d8fd5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0a48d0cab37b4ec998323a4ab20e458b",
+      "End": "63c63152183d4700819a9b256e4761d7",
+      "Id": "aaf1d4a38b5e4671a1cf9816bf079ed5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1a467604ee74cf997d32e590d83050c",
+      "End": "df96d19a14a5422c82c61598aca6109c",
+      "Id": "371cd6ab63ff47b69a8e7517fc070f1e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1a467604ee74cf997d32e590d83050c",
+      "End": "36b5f77740cb43e684d243c6720da325",
+      "Id": "72e5fb3bf56f4502ac21f8e168fd3353",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "66e38775f46d4837a0b64a1f8a0b32ce",
+      "End": "5070fe104493459aa93bd669919d0867",
+      "Id": "2033aad236784557a6e2b7bee51a317c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "015e3a3b97f549adbd06c3af07028e7e",
+      "End": "8c9d91a616734cf9b52e160b348785c5",
+      "Id": "685999e33ab544b5b84db5e89d670e56",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e23be49638a54672bb86fdbb19710ae2",
+      "End": "65ed94fd89524be2be424148c03dfc9e",
+      "Id": "921b609793a145a0b014fc059cab33f6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "42593415d6e24befab5aff4ee77a6831",
+      "End": "076f91bf245747b1875b70637222cf2f",
+      "Id": "e3c32b5606f74909a5840f671818e1e6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "658c4e5ceeb3425f965091bc53696d6e",
+      "End": "c7b66a9d2a24485dbd4f17d604364c15",
+      "Id": "de4b2fb5e430447c84589fc542e36b0b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a2e885403bf14049883c074a05a4f20b",
+      "End": "a8c96e0b62fa4b8c8bffd8f2734037b9",
+      "Id": "0d5b3ea3760941ccb189f2baea40a748",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "83955b558c7049eb988bdf9ee754c1a4",
+      "End": "3023cd3eec1c4aa3875400732b3ec73d",
+      "Id": "1e817981641e400ca04cfe680761de29",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "93a3fae2-24aa-47dc-9bf2-748662781306"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "5.1.3",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "ff54e14c0cf74988a5910b87e5262166"
+      ]
+    },
+    {
+      "Name": "Genius Loci",
+      "Version": "2024.5.29",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fba8faad0ac74ad69c1409b246413637"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "CAD.CurvesFromCADLayers",
+        "ShowGeometry": true,
+        "Id": "ff54e14c0cf74988a5910b87e5262166",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 471.25194027436419,
+        "Y": -48.308260956302547
+      },
+      {
+        "Name": "Selecciona CAD",
+        "ShowGeometry": true,
+        "Id": "904046d6d8774b80951328942b396fa2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -151.81400681164155,
+        "Y": -52.89415235576638
+      },
+      {
+        "Name": "Nombre de capa en CAD",
+        "ShowGeometry": true,
+        "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -161.46161903717427,
+        "Y": 184.10864873999776
+      },
+      {
+        "Name": "Start Level",
+        "ShowGeometry": true,
+        "Id": "6aee18d189b24cd099eef405aa701f55",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 512.67497515162518,
+        "Y": 552.14611458930949
+      },
+      {
+        "Name": "End Level",
+        "ShowGeometry": true,
+        "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 511.64102097027933,
+        "Y": 721.3309969286596
+      },
+      {
+        "Name": "Wall Type",
+        "ShowGeometry": true,
+        "Id": "4ccbda59533a4ca3a94e75f6f796c3c0",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 493.83684459658832,
+        "Y": 950.70799483501878
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "03a1a355bbc940918a1d0ca0d6080a11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1025.1278493814052,
+        "Y": 200.49677006220588
+      },
+      {
+        "Name": "Wall ByCurveAndLevel",
+        "ShowGeometry": true,
+        "Id": "fba8faad0ac74ad69c1409b246413637",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1777.1191558508187,
+        "Y": 407.15531925807568
+      },
+      {
+        "Name": "Wall Location",
+        "ShowGeometry": true,
+        "Id": "70d88e408d684290ac149261691f1645",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 932.82713404481092,
+        "Y": 1040.642850744412
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "8322906f31344b61acf72ca4fa92051c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1031.9275445807391,
+        "Y": 610.53992721818611
+      },
+      {
+        "Name": "Es estructural?",
+        "ShowGeometry": true,
+        "Id": "4fd68720867b4444af26e7e212015152",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1425.7968811354338,
+        "Y": 1000.7333905975352
+      },
+      {
+        "Name": "Element.SetParameterByName",
+        "ShowGeometry": true,
+        "Id": "947677fdb20540b8949882a09febafb4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2568.6415446003543,
+        "Y": 738.58802660896254
+      },
+      {
+        "Name": "Nombre de parámetro Top Constraint en el idioma elegido. Si estamos en Revit en ingles dejar así.",
+        "ShowGeometry": true,
+        "Id": "2b7420f06c034e71b64bc7354aee6a30",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1441.1445837938215,
+        "Y": 119.40197648452073
+      }
+    ],
+    "Annotations": [],
+    "X": 202.26242444616659,
+    "Y": 160.23741832566142,
+    "Zoom": 0.24498060112136127
+  }
+}
