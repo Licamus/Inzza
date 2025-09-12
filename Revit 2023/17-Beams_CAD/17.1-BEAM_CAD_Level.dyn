@@ -1,0 +1,593 @@
+{
+  "Uuid": "1954a2d2-a3ae-4a2a-b51e-fc0eab1feb40",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "17.1-BEAM_CAD_Level",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "List": {
+        "Key": "List",
+        "Value": "BuiltIn.ds"
+      },
+      "Level": {
+        "Key": "Revit.Elements.Level",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [
+    {
+      "Id": "904046d6d8774b80951328942b396fa2",
+      "Name": "Selecciona CAD",
+      "Type": "selection",
+      "Type2": "hostSelection",
+      "Value": "d9d4fba9-39de-45b7-92a4-598515389cd3-000b65a7",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+      "Name": "Nombre de capa en CAD",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "1",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+      "Name": "Reference Level",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "Level 2",
+      "Description": "Select a level in the active document",
+      "SelectedIndex": 5
+    },
+    {
+      "Id": "496b751da34d439e8bedbb2218c65abe",
+      "Name": "Structural Framing Types",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "W12X26",
+      "Description": "Select a structural framing type in the active document",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "2b7420f06c034e71b64bc7354aee6a30",
+      "Name": "Nombre de parámetro Reference Level en el idioma elegido. Si estamos en Revit en ingles dejar así.",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "Reference Level",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CAD.CurvesFromCADLayers@Revit.Elements.ImportInstance,string[],bool,string[]",
+      "Id": "ff54e14c0cf74988a5910b87e5262166",
+      "Inputs": [
+        {
+          "Id": "423bee9e4a294c9595928065f376e427",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "783f5c2b282b42b991a10f530802092c",
+          "Name": "layerNames",
+          "Description": "Input the layer names for conversion. Leave unconnected to convert all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9ebc7daac041464a8b7b55663c60bc77",
+          "Name": "createModelCurves",
+          "Description": "Set to True to convert into Revit Model Lines.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9984002676c847cfa98ffa05315af5f3",
+          "Name": "lineStyleMap",
+          "Description": "Input the LineStyle name to map to each layer. Longest lacing is used by default.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b9f6f352cf024f51a39528dc249d6ce2",
+          "Name": "Curve[][]",
+          "Description": "Curve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e4509328c69404e97f12132ebf0b3e4",
+          "Name": "layerKeys[]",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Extracts curves from a CAD link or import by layer name. Enter LineStyle names to map to each layer during conversion.\r\rThe node is optimized to convert curve types that typically fail when using Dynamo Element.Curves node or Revit Explode.\r\rVisit bimorph.com/bimorph-nodes for support.\n\nCAD.CurvesFromCADLayers (importInstance: ImportInstance, layerNames: string[] = [], createModelCurves: bool = false, lineStyleMap: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "d9d4fba9-39de-45b7-92a4-598515389cd3-000b65a7"
+      ],
+      "Id": "904046d6d8774b80951328942b396fa2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "67817f8394aa4dc292b0ee6cc60289ac",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "1",
+      "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "63e60db400784f8dbc35cc1adf6b9dfd",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 5,
+      "SelectedString": "Level 2",
+      "NodeType": "ExtensionNode",
+      "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1a467604ee74cf997d32e590d83050c",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "03a1a355bbc940918a1d0ca0d6080a11",
+      "Inputs": [
+        {
+          "Id": "4322d2c8095f418180e38121b30fae39",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8559325f53f7441f85073dc201fde5bf",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "015e3a3b97f549adbd06c3af07028e7e",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.StructuralFramingTypes, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "SelectedString": "W12X26",
+      "NodeType": "ExtensionNode",
+      "Id": "496b751da34d439e8bedbb2218c65abe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bc59c9f18eab4f30981d81d092699482",
+          "Name": "Framing Types",
+          "Description": "The selected Framing Types",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a structural framing type in the active document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "947677fdb20540b8949882a09febafb4",
+      "Inputs": [
+        {
+          "Id": "8b253a21a6054107844c5038e0cd5289",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "06c65a872d90428faef89b929f3632cc",
+          "Name": "parameterName",
+          "Description": "The name of the parameter to set.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6faa777f755b49a8a9aea9321e7f7907",
+          "Name": "value",
+          "Description": "The value.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7502e7c93b124b669f4cd9c6d6c96cd0",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Reference Level",
+      "Id": "2b7420f06c034e71b64bc7354aee6a30",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "69a09612a36a405db6f28635b311fb84",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "7454e641-5bf5-45cb-99de-fd25980f8d58",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "e114a937a3e44b979e4da673461f49de",
+      "Inputs": [
+        {
+          "Id": "f322e594a7e34d5d89fdd180260829d1",
+          "Name": "_curve",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ab3b70ef87ba4a91848822be17823253",
+          "Name": "_structuralFramingType",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9c5b6b766e80496db94f6e4f5c9d38ba",
+          "Name": "_level",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9b61adb2385a4fad93f0bf5611b50ed9",
+          "Name": "_beam",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node will take an input of curves and attempt to make a structural framing member by type and level. "
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b9f6f352cf024f51a39528dc249d6ce2",
+      "End": "4322d2c8095f418180e38121b30fae39",
+      "Id": "8852eb758e59423195111669a3cd60c6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "67817f8394aa4dc292b0ee6cc60289ac",
+      "End": "423bee9e4a294c9595928065f376e427",
+      "Id": "49820d2928984bf8bff66b4a4e6d9088",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "63e60db400784f8dbc35cc1adf6b9dfd",
+      "End": "783f5c2b282b42b991a10f530802092c",
+      "Id": "b8b17c538ff84c779cbb00ddb326df9c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1a467604ee74cf997d32e590d83050c",
+      "End": "6faa777f755b49a8a9aea9321e7f7907",
+      "Id": "72e5fb3bf56f4502ac21f8e168fd3353",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1a467604ee74cf997d32e590d83050c",
+      "End": "9c5b6b766e80496db94f6e4f5c9d38ba",
+      "Id": "c83ffd8d76bf474fbbd6db029e188ea5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "015e3a3b97f549adbd06c3af07028e7e",
+      "End": "f322e594a7e34d5d89fdd180260829d1",
+      "Id": "08bc3cfe346e405d8e98e1a0952d5877",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bc59c9f18eab4f30981d81d092699482",
+      "End": "ab3b70ef87ba4a91848822be17823253",
+      "Id": "ae369e254ac1461dbf9f3a924b1bf2dd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "69a09612a36a405db6f28635b311fb84",
+      "End": "06c65a872d90428faef89b929f3632cc",
+      "Id": "1e817981641e400ca04cfe680761de29",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9b61adb2385a4fad93f0bf5611b50ed9",
+      "End": "8b253a21a6054107844c5038e0cd5289",
+      "Id": "6389f0af235e47ea91b80f1086836908",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "7454e641-5bf5-45cb-99de-fd25980f8d58"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "5.1.3",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "ff54e14c0cf74988a5910b87e5262166"
+      ]
+    },
+    {
+      "Name": "archi-lab.net",
+      "Version": "2023.213.1722",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e114a937a3e44b979e4da673461f49de"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "CAD.CurvesFromCADLayers",
+        "ShowGeometry": true,
+        "Id": "ff54e14c0cf74988a5910b87e5262166",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 471.251940274364,
+        "Y": -48.3082609563025
+      },
+      {
+        "Name": "Selecciona CAD",
+        "ShowGeometry": true,
+        "Id": "904046d6d8774b80951328942b396fa2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -151.814006811642,
+        "Y": -52.8941523557664
+      },
+      {
+        "Name": "Nombre de capa en CAD",
+        "ShowGeometry": true,
+        "Id": "776e0e31507c4c1b920ba4e7d8a40325",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -161.461619037174,
+        "Y": 184.108648739998
+      },
+      {
+        "Name": "Reference Level",
+        "ShowGeometry": true,
+        "Id": "b9c46b06da2e4d82b39c18046d7d6e40",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1216.0246674209152,
+        "Y": 592.10831344060432
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "03a1a355bbc940918a1d0ca0d6080a11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 965.353577873171,
+        "Y": -36.2093451104007
+      },
+      {
+        "Name": "Structural Framing Types",
+        "ShowGeometry": true,
+        "Id": "496b751da34d439e8bedbb2218c65abe",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 920.188712844935,
+        "Y": 283.781594209232
+      },
+      {
+        "Name": "Element.SetParameterByName",
+        "ShowGeometry": true,
+        "Id": "947677fdb20540b8949882a09febafb4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2832.5495719340206,
+        "Y": 474.55920880614076
+      },
+      {
+        "Name": "Nombre de parámetro Reference Level en el idioma elegido. Si estamos en Revit en ingles dejar así.",
+        "ShowGeometry": true,
+        "Id": "2b7420f06c034e71b64bc7354aee6a30",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1366.7158169083714,
+        "Y": -236.28567693628673
+      },
+      {
+        "Name": "StructuralFraming.BeamByCurve",
+        "ShowGeometry": true,
+        "Id": "e114a937a3e44b979e4da673461f49de",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1907.908632096181,
+        "Y": 28.111009691296829
+      }
+    ],
+    "Annotations": [],
+    "X": 369.75006934518967,
+    "Y": 444.47038889323233,
+    "Zoom": 0.17304612471640868
+  }
+}
