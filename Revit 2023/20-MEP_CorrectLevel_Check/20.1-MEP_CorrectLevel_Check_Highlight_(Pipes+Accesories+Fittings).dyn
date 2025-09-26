@@ -3464,7 +3464,7 @@
         "Height": 346.68694813467027,
         "FontSize": 36.0,
         "InitialTop": 2428.6392245155512,
-        "InitialHeight": 482.52842064103515,
+        "InitialHeight": 209.08694813467037,
         "TextblockHeight": 105.6,
         "Background": "#FFFFAA45"
       },
@@ -3489,7 +3489,7 @@
         "Height": 455.93571393688535,
         "FontSize": 36.0,
         "InitialTop": 2419.5846205359258,
-        "InitialHeight": 410.6897933529026,
+        "InitialHeight": 396.73571393688508,
         "TextblockHeight": 62.4,
         "Background": "#FF48B9FF"
       },
@@ -3537,7 +3537,7 @@
         "Height": 346.68694813466982,
         "FontSize": 36.0,
         "InitialTop": 3840.8243093338647,
-        "InitialHeight": 482.5284206410347,
+        "InitialHeight": 209.08694813466991,
         "TextblockHeight": 105.6,
         "Background": "#FFFFAA45"
       },
@@ -3651,8 +3651,8 @@
         "Background": "#FFFFB8D8"
       }
     ],
-    "X": 89.397288432509413,
-    "Y": 237.87233298872195,
-    "Zoom": 0.086718775299709
+    "X": 178.89355594289339,
+    "Y": 259.40960079808303,
+    "Zoom": 0.084536474334787393
   }
 }
